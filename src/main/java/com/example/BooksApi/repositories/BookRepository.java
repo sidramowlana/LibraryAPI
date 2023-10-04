@@ -8,7 +8,9 @@ import java.util.List;
 
 @Repository
 public interface BookRepository extends JpaRepository<Book, Integer> {
-    Book findBybookIsbn(Integer isbn);
+    Book findByBookIsbn(Integer isbn);
     boolean existsByBookIsbn(Integer isbn);
     List<Book> findByAuthorAuthorId(Integer authorId);
+    void deleteByBookIsbn(Integer isbn);
+    void deleteAllByAuthorAuthorId(Integer id);
 }

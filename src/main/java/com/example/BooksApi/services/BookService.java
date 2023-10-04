@@ -27,7 +27,6 @@ public class BookService {
             Book book = new Book();
             book.setBookIsbn(newBook.getBookIsbn());
             book.setBookName(newBook.getBookName());
-            book.setPublishDate(newBook.getPublishDate());
             book.setPublisher(newBook.getPublisher());
             bookRepository.save(book);
             return ResponseEntity.ok().body(new MessageResponse("Successfully saved"));
@@ -41,7 +40,6 @@ public class BookService {
         else{
             Book book = bookRepository.findByBookIsbn(isbn);
             book.setBookName(updateBook.getBookName());
-            book.setPublishDate(updateBook.getPublishDate());
             book.setPublisher(updateBook.getPublisher());
             bookRepository.save(book);
             return ResponseEntity.ok().body(new MessageResponse("Updated successfully"));

@@ -14,7 +14,6 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer bookIsbn;
     private String bookName;
-    private String publishDate;
     private String publisher;
 
     //An author can have many books. where as a book is specific for an author

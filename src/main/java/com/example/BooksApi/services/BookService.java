@@ -46,9 +46,13 @@ public class BookService {
         }
     }
     //delete a book by isbn
-    public void deleteBookByIsbn(Integer isbn){
+    public ResponseEntity<?> deleteBookByIsbn(Integer isbn){
         if(bookRepository.existsByBookIsbn(isbn)){
             bookRepository.deleteByBookIsbn(isbn);
+            return ResponseEntity.ok().body(new MessageResponse("Deleted the books successfully"));
+
+        }else{
+            return ResponseEntity.badRequest().body(new MessageResponse("Author is not found!!!"));
         }
     }
     //get all books

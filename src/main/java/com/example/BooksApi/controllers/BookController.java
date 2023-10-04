@@ -43,8 +43,8 @@ public class BookController {
 
     //DELETE --------------------------------
     @DeleteMapping(value = "/delete/{isbn}")
-    public void deleteBookByIsbn(@PathVariable Integer isbn){
-        bookService.deleteBookByIsbn(isbn);
+    public ResponseEntity<?> deleteBookByIsbn(@PathVariable Integer isbn){
+        return bookService.deleteBookByIsbn(isbn);
     }
 
 

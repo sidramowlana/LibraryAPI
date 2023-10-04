@@ -49,11 +49,13 @@ public class AuthorService {
         }
     }
     //delete an author by id
-    public void deleteAuthorById(Integer id){
+    public ResponseEntity<?> deleteAuthorById(Integer id){
         if(authorRepository.existsById(id)){
             bookRepository.deleteAllByAuthorAuthorId(id);
             authorRepository.deleteById(id);
+            return ResponseEntity.ok().body(new MessageResponse("Deleted the author and his books successfully"));
         }
+        return ResponseEntity.badRequest().body(new MessageResponse("Author is not found!!!"));
     }
     //get all authors
     public List<Author> getAllAuthors() {

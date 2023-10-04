@@ -40,15 +40,15 @@ public class AuthorController {
 
     //UPDATE --------------------------------
     @GetMapping(value = "/update/{id}")
-    public ResponseEntity<?> updateAAuthorById(@PathVariable Integer id, @RequestBody Author updateAuthor) {
+    public ResponseEntity<?> updateAuthorById(@PathVariable Integer id, @RequestBody Author updateAuthor) {
         return authorService.updateAuthorById(id, updateAuthor);
     }
 
 
     //DELETE --------------------------------
     @DeleteMapping(value = "/delete/{id}")
-    public void deleteAuthorById(@PathVariable Integer id) {
-        authorService.deleteAuthorById(id);
+    public ResponseEntity<?> deleteAuthorById(@PathVariable Integer id) {
+       return authorService.deleteAuthorById(id);
     }
 
 }
